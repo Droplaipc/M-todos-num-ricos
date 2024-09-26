@@ -1,10 +1,9 @@
 # Programa general métodos numéricos
 import math as m
-import numpy as np
 
 # Función
 def f(t):
-    return m.exp(t) + t
+    return m.exp(t) - m.sin(t)
 
 # Derivada de la función
 def df(t):
@@ -68,8 +67,24 @@ class NumMethods:
         print(f"la raíz para {self.n} iteraciones es {x}")
         return x
 
-metodos = NumMethods(5)
+    # Método de la secante
+    def meth_secante(self, x1, x2):
 
-metodos.bipartition(-1, 0)
-metodos.regul_falsi(-1, 0)
-metodos.newton_raph(1)
+        # Bucle iterador
+        for _ in range(self.n):
+            x = (x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1))
+
+            x1 = x2
+            x2 = x
+
+
+        print(f"la raíz para {self.n} iteraciones es {x}")
+
+        return x
+
+metodos = NumMethods(3)
+
+# metodos.bipartition(-1, 0)
+# metodos.regul_falsi(-1, 0)
+# metodos.newton_raph(1)
+metodos.meth_secante(1, 2)
