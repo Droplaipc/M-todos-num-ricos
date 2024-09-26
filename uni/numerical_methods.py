@@ -76,8 +76,6 @@ class NumMethods:
 
             x1 = x2
             x2 = x
-
-
         print(f"la raíz para {self.n} iteraciones es {x}")
 
         return x
